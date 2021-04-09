@@ -89,9 +89,6 @@ d3.json('samples.json').then((sampleData) => {
         };
         Plotly.newPlot('bubble', bubbleData, bubbleLayout);
 
-
-
-
         // Creates trace for individual for plotting gauge.
         let gaugeTrace = {
             domain: {
@@ -111,6 +108,8 @@ d3.json('samples.json').then((sampleData) => {
                     }
                 },
                 borderwidth: 1,
+                
+                // Defines increments.
                 axis: {
                     range: [0, 9],
                     tickmode: 'array',
@@ -118,6 +117,8 @@ d3.json('samples.json').then((sampleData) => {
                     tickvals: [1,2,3,4,5,6,7,8],
                     ticktext: ['1','2','3','4','5','6','7','8']
                 },
+
+                // Sets colors for each increment on gauge.
                 steps: [
                     {range: [0,1], color: 'maroon'},
                     {range: [1,2], color: 'firebrick'},
@@ -139,6 +140,8 @@ d3.json('samples.json').then((sampleData) => {
         };
         Plotly.newPlot('gauge', gaugeData, gaugeLayout);
     }
+    
+    // Calls update function to initially display information.
     updatePlotly();
 });
 
